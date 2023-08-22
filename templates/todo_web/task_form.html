@@ -1,0 +1,18 @@
+{% extends 'todo_web/base.html' %}
+
+{% block body %}
+
+<div class="container">
+  <div>
+      <h1> {{ object|yesno:"Update,Create"}} Task </h1>
+    <div>
+      <form action="" method="post" novalidate>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit" class="btn btn-warning btn-sm end">
+        <a href="{% url 'todo_web:index' %}" class="btn btn-danger btn-sm">Cancel</a>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
